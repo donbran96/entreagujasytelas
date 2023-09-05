@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+ :root {
+    /*Fuentes*/
+    --fuente-principal: 'Raleway', 'sans-serif';
+    --fuente-secundaria: 'Caveat', 'sans-serif'; 
+    /*Colores*/
+    --primario: #C85F3D;
+    --secundario: #F2E789;
+    --blanco: #f2f2f2;
+    --negro: #1c1c1c;
+ } 
+ 
+  
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    box-sizing: border-box;
+    font-size: 62.5%; /*10px=1rem*/
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+body{
+    background: var(--primario);
+    font-family: var(--fuente-principal);
+    font-size: 18px;
+    font-size: 1.8rem;
+}
+h1,h2,h3,h4{
+    font-family: var(--fuente-secundaria);
+    margin: 0 0 5rem 0;
+    line-height: 1.2; 
+}
+h1{
+    font-size: 6rem;
+}
+h2{
+    font-size: 4.8rem;
+}
+h3{
+    font-size: 3.6rem;
+}
+h4{
+    font-size: 2.4rem;
+}
+ul{
+    list-style: none;
+}
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.contenedor{
+    width: min(95%, 120rem);
+    margin: 2.5rem auto;
+    padding: 0 10px;
+}
+.contenedor-ancho{
+    width: 100%;
+    margin: 2.5rem auto;
+    text-align: center;
+}
+.titulos{
+    color: var(--secundario);
+    text-align: center;
+}
+.subtitulos{
+    color: var(--blanco);
+    text-align: center;
+}
+.italic{
+    font-style: italic;
+}
+a{
+    text-decoration: none;
+}
+p{
+    line-height: 24px;
+}
+.contenedor_borde{
+    border-top: 1px solid var(--blanco);
+    border-bottom: 1px solid var(--blanco);
+    
+}
+.borde_abajo{
+    border-bottom: 1px solid var(--blanco);
+}
+.ver_todos{
+    background: var(--negro);
+    color: var(--secundario);
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-top: 30px;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    
+}
+.boton-animacion{
+    transform-origin: center; /* Especifica el punto de origen para la transformación */
+    animation: pulse-grow-animation 2s infinite; /* Agregamos la animación al botón */
+}
+.caja_padding_adentro{
+   padding: 0 10px;
+}
+.lista-clientes .parrafo{
+    text-align: center;
+}
+.icono-whatsapp{
+   color: var(--secundario);
+   font-size: 16px;
+   margin: 20px 0;
+}
+.icono-whatsapp:before{
+    margin-right: 10px;
+}
+.parrafo-estrecho{
+    width: 75%;
+    margin: 0 auto;
+}
+.zoom-in{
+    animation-name: agrandar;
+    animation-duration: 1.2s;
+}
+/* Estilos para la transición */
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--negro); /* Fondo negro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease-in-out; /* Añade una transición de opacidad */
+    opacity: 0; /* Inicialmente, la capa está oculta */
+    pointer-events: none; /* Deshabilita eventos en la capa oculta */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    background-color: var(--negro); /* Fondo negro */
+    transition: opacity 0.5s ease; /* Añade una transición de opacidad */
+}
+
+.transition-overlay img {
+    max-width: 200px; /* Ajusta el tamaño del logo */
+    opacity: 1;
+    transition: opacity 0.5s ease; /* Añade una transición de opacidad */
+}
+.transition-overlay.hide {
+    opacity: 0;
+    pointer-events: none; /* Deshabilita eventos en la capa oculta */
+    display: none; /* Oculta completamente la capa */
+}
+.transition-overlay.show {
+    opacity: 1; /* Muestra la capa */
+    pointer-events: auto; /* Habilita eventos en la capa mostrada */
+}
+
+@media screen and (max-width: 500px){
+    .parrafo-estrecho{
+        width: 90%;
+    }   
+}
+@keyframes pulse-grow-animation {
+    0%, 100% {
+      transform: scale(1); /* Tamaño original del botón al inicio y final de la animación */
+    }
+    50% {
+      transform: scale(1.1); /* Hace que el botón crezca al 110% de su tamaño original en el medio de la animación */
+    }
+  }
+@keyframes agrandar {
+    0%{
+        transform: scale(0);
+    }
+   
+    100%{
+        transform: scale(1);
+    }
+}

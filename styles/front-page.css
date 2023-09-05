@@ -1,0 +1,136 @@
+/* Establecer el posicionamiento relativo en el contenedor del slider */
+.slideshow-container {
+    position: relative;
+    top: -200px;
+  }
+  
+  /* Asegúrate de que las imágenes tengan un tamaño fijo y estén apiladas */
+  .slideshow {
+    position: relative;
+    height: 100vh; /* Ajusta la altura según tus necesidades */
+    overflow: hidden; /* Evita que las imágenes se desborden y afecten el contenido circundante */
+  }
+  
+  .slideshow .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none; /* Para que las imágenes no sean clickeables */
+    transition: opacity 1s ease-in-out;
+    background-position: center;
+    background-size: cover;
+   
+  }
+  .slideshow .slide.ken-burns {
+    animation: kenBurns 5s infinite alternate;
+}
+
+  
+  /* Mostrar solo la imagen activa con opacidad completa */
+  .slideshow .slide.active {
+    opacity: 1;
+  }
+  .slide div{
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+    color: var(--blanco); /* Ajusta el color del texto según tu diseño */
+  }
+  .slide div h1,
+  .slide div h3{
+    width: 100%;
+    text-align: center;
+    font-family: var(--fuente-secundaria);
+    font-weight: 700;
+    margin-bottom: 0;
+    
+  }
+
+.foto_retrato img{
+    width: 300px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+.foto_retrato_cliente img{
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+.descripcion_retrato p{
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+}
+.parrafo{
+    color: var(--secundario);
+    margin-top: 20px;
+}
+.cajas_padding{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.lista-clientes{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+@media screen and (max-width: 1024px){
+  .slideshow-container {
+    top: -175px;
+  }
+}
+@media screen and (max-width: 873px){
+  .slideshow {
+    height: 103vh; /* Ajusta la altura según tus necesidades */
+  }
+}
+@media screen and (max-width: 800px){
+  .lista-clientes{
+      grid-template-columns: 1fr 1fr;
+     /* font-size: 2.4rem;*/
+  }   
+}
+@media screen and (max-width: 767px){
+  .slideshow {
+    height: 100vh; /* Ajusta la altura según tus necesidades */
+  }
+  .slideshow-container {
+    top: -191px;
+  }   
+}
+@media screen and (max-width: 500px){
+  .lista-clientes{
+      grid-template-columns: 1fr;
+      /*font-size: 1.8rem;*/
+  }
+  .descripcion_retrato p{
+    width: 100%;
+  }
+  .foto_retrato img{
+    width: 200px;
+  }
+}
+
+
+/*  @keyframes kenBurns {
+    0% {
+        transform: scale(1) ;
+    }
+    98% {
+        transform: scale(1.2) ;
+        opacity: 1; 
+    }
+    100%{
+        opacity: 0;
+    }
+}*/

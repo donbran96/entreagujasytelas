@@ -1,0 +1,103 @@
+header{
+    z-index: 999;
+    position: relative;
+}
+.header .logo img{
+    width: 15rem;
+}
+.header .contenedor{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+div.logo,
+.redes-sociales{
+    width: 27%;
+}
+.redes-sociales{
+    display: grid;
+    grid-template-columns: 20px 20px;
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.redes-sociales i{
+    font-size: 25px;
+    color: var(--blanco);
+}
+.redes-sociales i:hover{
+    font-size: 25px;
+    color: var(--secundario);
+}
+nav{
+    width: 46%;
+}
+div.logo{
+    display: flex;
+    justify-content: center;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav ul{
+    display: flex;
+    flex-direction: row;
+}
+nav ul li a{
+    padding: 0 1.1rem 0.5rem 1.1rem;
+    text-decoration: none;
+    color: var(--blanco)
+}
+nav ul li a:hover,
+.current-menu-item a{
+    border-bottom: 3px solid var(--secundario);
+    color: var(--secundario);
+}
+@media screen and (max-width: 1024px){
+    .header .logo img{
+        width: 12.5rem;
+    }
+    nav ul li{
+        margin: 0 0.5rem 0 0.5rem;
+    }
+    div.logo,
+    .redes-sociales{
+        width: 15%;
+    }
+    nav{
+        width: 70%;
+    }
+}
+@media screen and (max-width: 767px){
+    div.logo,
+    .redes-sociales{
+        width: 50%;
+    }
+    div.logo{
+        order: 1;
+    }
+    .redes-sociales{
+        order: 2;
+    }
+    nav{
+        width: 100%;
+        order: 3;
+    }
+    .header .logo img{
+        width: 10rem;
+    }
+    nav ul li a{
+        font-size: 1.5rem;
+        padding: 0 0.4rem 0rem 0.4rem;
+    }
+    nav{
+        margin-top: 2rem;
+    }
+}
+@media screen and (max-width: 400px){
+    nav ul li{
+        margin: 0 0.2rem 0 0.2rem;
+    }
+}

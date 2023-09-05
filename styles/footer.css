@@ -1,0 +1,12 @@
+footer.contenedor p{
+    text-align: center;
+    color: var(--blanco);
+}
+footer.contenedor a{
+    text-decoration: none;
+    color: var(--blanco);
+}
+.ancho{
+    width: 100%;
+    margin-bottom: 1rem;
+}

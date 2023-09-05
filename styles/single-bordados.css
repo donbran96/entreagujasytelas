@@ -1,0 +1,141 @@
+div.galeria-imagenes{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+.caja-estrecha{
+    width: 75%;
+    margin: 0 auto;
+    color: var(--secundario);
+    text-align: center;
+    margin-top: 2rem;
+}
+/* Personalizar el color de los íconos de Facebook, Instagram y WhatsApp */
+.whatsapp-icon i {
+    color: var(--secundario); /* Azul de Facebook */
+}
+
+/*galeriamodal*/
+modal {
+    display: none;
+    position: fixed;
+    z-index: 9999; /* Asegura que esté por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro con opacidad */
+    overflow: auto;
+  }
+
+  .modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  #modal-image {
+    max-width: 90%;
+    max-height: 90vh;
+  }
+
+  /* Estilos para los botones de navegación */
+   /* Estilos para la galería modal */
+   .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+    transition: opacity 0.3 ease-in-out;
+  }
+
+  .modal-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  #modal-image {
+    max-width: 90%;
+    max-height: 90vh;
+  }
+
+  /* Estilos para los botones de navegación */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+  }
+
+  .modal-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  #modal-image {
+    max-width: 90%;
+    max-height: 90vh;
+    opacity: 0; /* Inicialmente oculta la imagen */
+    transition: opacity 0.3s ease; /* Agrega una transición suave */
+  }
+
+  /* Estilos para los botones de navegación */
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    font-size: 2em;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    padding: 0.5em;
+    user-select: none;
+    display: none;
+  }
+
+  .prev {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
+
+  /* Otros estilos */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    z-index: 999;
+  }
+
+@media screen and (max-width: 1024px){
+    div.galeria-imagenes{
+        grid-template-columns: 1fr 1fr;
+    }   
+}
+@media screen and (max-width: 767px){
+    div.galeria-imagenes{
+        grid-gap: 0;
+    }   
+}

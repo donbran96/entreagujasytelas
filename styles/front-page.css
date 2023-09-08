@@ -28,6 +28,9 @@
   .slideshow .slide.ken-burns {
     animation: kenBurns 5s infinite alternate;
 }
+.slideshow .slide div{
+  padding: 0 10px;
+}
 
   
   /* Mostrar solo la imagen activa con opacidad completa */
@@ -118,6 +121,9 @@
   }
   .foto_retrato img{
     width: 200px;
+  }
+  .parrafo{
+    font-size: 1.6rem;
   }
 }
 

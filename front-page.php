@@ -72,30 +72,95 @@
         </a>
     </div>
 
+
+                   <!--Caja de Noticias-->
+    
+       <div class="contenedor_borde cajas_padding">
+    <div class="contenedor">
+        <h2 class="subtitulos">Últimas Noticias!</h2>
+              <!-- Mostrar las últimas noticias con una etiqueta específica -->
+        <?php
+        $args = array(
+            'post_type' => 'post', // Tipo de publicación: post
+            'tag' => 'destacada', // Nombre de la etiqueta a mostrar
+            'posts_per_page' => 3, // Número de noticias a mostrar
+        );
+
+        $query = new WP_Query($args);
+
+        if ($query->have_posts()) :
+            while ($query->have_posts()) : $query->the_post();
+        ?>
+                
+
+                
+                <div class="noticia-destacada">
+                    <div class="caja-izquierda">
+                        <h2 class="titulos">
+                            <?php the_title(); ?>
+                        </h2>
+                        <div class="extracto">
+                            <?php the_excerpt(); ?>
+                        </div>
+                        <a href="<?php the_permalink(); ?>">
+                            <button class="ver_todos">Conocer más</button>
+                        </a>
+                    </div>
+                    <?php
+                    
+                    if (has_post_thumbnail()) {
+                        the_post_thumbnail();
+                    }
+                   
+                    ?>
+                </div>
+               
+  <?php
+            endwhile;
+            wp_reset_postdata(); // Restaurar los datos originales del bucle principal de WordPress
+        else :
+            echo 'No se encontraron noticias con la etiqueta especificada.';
+        endif;
+        ?>
+
+        <a href="<?php echo home_url('/blog/'); ?>">
+            <button class="ver_todos">Noticias</button>
+        </a>
+    </div>
+</div>
+
+
+
+
     <!-- Caja de categorias-->
 
     <div class="cajas_padding contenedor_borde">
-        <h2 class="subtitulos">Categorías</h2>
-        <ul class="lista-bordados">
-            <?php
-                $categories = get_categories(); // Obtener todas las categorías
-                foreach ($categories as $category) {
-                    $category_image = get_field('imagen_destacada', 'category_' . $category->term_id); // Obtener la URL de la imagen destacada de la categoría (campo personalizado ACF)
-                    $category_name = $category->name; // Obtener el nombre de la categoría
-            ?>
-                    <li>
-                        <div href="#" style="background-image: url('<?php echo $category_image; ?>')" class="estilo-thumbnail">
-                            <div><?php echo $category_name; ?></div>
-                        </div>
-                    </li>
-            <?php
-                }
-            ?>
-        </ul>
-        <a href="<?php echo $archive_url; ?>">
-            <button class="ver_todos" >Ver Todos</button>
-        </a>
-    </div>
+    <h2 class="subtitulos">Categorías</h2>
+    <ul class="lista-bordados">
+        <?php
+        $categories = get_categories(); // Obtener todas las categorías
+        foreach ($categories as $category) {
+            // Excluye la categoría "Sin categoría" (ID 1)
+            if ($category->term_id === 1) {
+                continue;
+            }
+            $category_image = get_field('imagen_destacada', 'category_' . $category->term_id); // Obtener la URL de la imagen destacada de la categoría (campo personalizado ACF)
+            $category_name = $category->name; // Obtener el nombre de la categoría
+        ?>
+            <li>
+                <div href="#" style="background-image: url('<?php echo $category_image; ?>')" class="estilo-thumbnail">
+                    <div><?php echo $category_name; ?></div>
+                </div>
+            </li>
+        <?php
+        }
+        ?>
+    </ul>
+    <a href="<?php echo $archive_url; ?>">
+        <button class="ver_todos">Ver Todos</button>
+    </a>
+</div>
+
     
     <!-- Caja de Clientes-->
 
@@ -142,7 +207,7 @@
     </div>
     
      <!--Caja de Sorteo-->
-    
+ <!--   
     <div class="contenedor_borde cajas_padding">
         <div class="contenedor">
             <h2 class="subtitulos">Ganadores del Sorteo</h2>
@@ -157,9 +222,11 @@
         </div>
     </div>
 
+            -->
+    
      <!--Caja de Contacto-->
     
-    <div class="cajas_padding borde_abajo">
+    <div class="cajas_padding contenedor_borde">
         <div class="contenedor">
             <h2 class="subtitulos">Contáctame</h2>
             <div class="descripcion_retrato parrafo"> 

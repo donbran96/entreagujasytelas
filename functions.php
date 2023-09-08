@@ -20,6 +20,7 @@
         wp_enqueue_style('bordados-style', get_template_directory_uri().'/styles/bordados.css', array('normalize'), '1.0.0');
         wp_enqueue_style('single-bordados-style', get_template_directory_uri().'/styles/single-bordados.css', array('normalize'), '1.0.0');
         wp_enqueue_style('front-page-style', get_template_directory_uri().'/styles/front-page.css', array('normalize'), '1.0.0');
+        wp_enqueue_style('noticias', get_template_directory_uri().'/styles/noticias.css', array('normalize'), '1.0.0');
         wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
         wp_enqueue_script('jquery');
         wp_enqueue_script('tu-slider-script', get_template_directory_uri() . '/js/slider-scripts.js', array('jquery'), '1.0.0', true);
@@ -160,4 +161,54 @@
     }
     add_action('customize_register', 'entreagujasytelas_logotipo');
 */    
+
+//Editar la pagina de Inicio de WP-ADMIN
+    
+// Personalizar el logo del área de administración
+function custom_login_logo() {
+    echo '<style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(' . get_template_directory_uri() . '/img/logo.png); 
+            height: 100px; /* Personaliza la altura */
+            width: 100px; /* Personaliza el ancho */
+            background-size: contain;
+        }
+    </style>';
+}
+
+add_action('login_head', 'custom_login_logo');
+
+// Personalizar la imagen de fondo del área de administración
+// Personalizar la imagen de fondo del área de administración
+function custom_admin_background() {
+    echo '<style type="text/css">
+        body.login {
+            background-image: url(' . get_template_directory_uri() . '/img/fondo-admin.jpg); /* Reemplaza esta URL con la URL de tu nueva imagen de fondo */
+            background-size: cover;
+        }
+    </style>';
+    echo '<style type="text/css">
+        form#loginform {
+            background: rgba(255,255,255,0.5);
+            border: none;
+            border-radius: 20px;
+        }
+        form#loginform label{
+            color: #000;
+        }
+        form#loginform input#wp-submit{
+            background: #C85F3D;
+            border: 1px solid #F2E789;
+        }
+        form#loginform input#wp-submit:hover{
+            background: #1c1c1c;
+            border: 1px solid #C85F3D;
+            color: #F2E789;
+        }
+    </style>';
+}
+
+add_action('login_enqueue_scripts', 'custom_admin_background');
+
+
 ?>

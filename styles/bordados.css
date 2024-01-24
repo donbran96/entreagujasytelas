@@ -13,6 +13,7 @@
 .lista-bordados{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    
 }
 .estilo-thumbnail div{
     width: 100%;
@@ -29,6 +30,12 @@
 }
 .estilo-thumbnail div:hover{
     opacity: 1;
+}
+.lista-categorias .estilo-thumbnail div{
+    opacity: 1;
+}
+.lista-categorias .estilo-thumbnail div:hover{
+    opacity: 0;
 }
 .lista-buscador{
     display: flex;

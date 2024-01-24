@@ -7,6 +7,17 @@
     <title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); echo ' | '; bloginfo('description'); ?></title>
     <?php wp_head(); ?>
 </head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-435L848B78"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-435L848B78');
+</script>
+
 <body>
     <header class="header">
         <div class="contenedor">

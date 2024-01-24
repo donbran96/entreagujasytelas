@@ -8,6 +8,8 @@
             </h2>
             <p class="parrafo" style="margin-bottom: 20px">Puedes rellenar el formulario de abajo para contactarme por correo electrónico😊.</p>
             <?php echo do_shortcode('[formulario_contacto]'); ?>
+            <?php echo do_shortcode('[contact-form-7 id="64b7791" title="Formulario de contacto 1"]'); ?>
+            
             <p class="parrafo-estrecho parrafo">También puedes escribirme por Whatsapp para consultar tus dudas y solicitar tu pedido personalizado. Con gusto te responderé😊.</p>
 
             <?php

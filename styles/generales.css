@@ -55,6 +55,9 @@ img{
     max-width: 100%;
     height: auto;
 }
+h2.titulo-slider{
+    font-size: 6rem;
+}
 .contenedor{
     width: min(95%, 120rem);
     margin: 2.5rem auto;
@@ -102,10 +105,7 @@ p{
     cursor: pointer;
     
 }
-.boton-animacion{
-    transform-origin: center; /* Especifica el punto de origen para la transformación */
-    animation: pulse-grow-animation 2s infinite; /* Agregamos la animación al botón */
-}
+
 .caja_padding_adentro{
    padding: 0 10px;
 }
@@ -124,10 +124,7 @@ p{
     width: 75%;
     margin: 0 auto;
 }
-.zoom-in{
-    animation-name: agrandar;
-    animation-duration: 1.2s;
-}
+
 /* Estilos para la transición */
 .transition-overlay {
     position: fixed;
@@ -178,23 +175,9 @@ p{
         font-size: 2.0rem !important;
     }
     h1{
-        font-size: 5.0rem;
+        font-size: 4.0rem;
+    }
+    h2.titulo-slider{
+        font-size: 4.0rem;
     }   
-}
-@keyframes pulse-grow-animation {
-    0%, 100% {
-      transform: scale(1); /* Tamaño original del botón al inicio y final de la animación */
-    }
-    50% {
-      transform: scale(1.1); /* Hace que el botón crezca al 110% de su tamaño original en el medio de la animación */
-    }
-  }
-@keyframes agrandar {
-    0%{
-        transform: scale(0);
-    }
-   
-    100%{
-        transform: scale(1);
-    }
 }

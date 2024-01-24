@@ -48,7 +48,7 @@
    
     color: var(--blanco); /* Ajusta el color del texto según tu diseño */
   }
-  .slide div h1,
+  .slide div h2,
   .slide div h3{
     width: 100%;
     text-align: center;
@@ -87,6 +87,60 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
 }
+/* Estilo para ocultar la ventana emergente */
+.popup {
+  display: none;
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  transition: all 0.5s ease-in-out;
+}
+
+/* Estilo para mostrar la ventana emergente */
+.show {
+  display: block;
+  opacity: 1;
+}
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255,255,255,0.8);
+  padding: 20px;
+  text-align: center;
+  border-radius: 20px;
+  width: 400px;
+  max-width: 90%;
+}
+.popup-content img{
+  width: 200px;
+  margin: 0 auto;
+}
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 40px;
+  z-index: 999;
+}
+.titulo-popup{
+  color: var(--primario);
+  margin: 10px 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+.popup-content button{
+  margin-top: 10px;
+}
+
+
 @media screen and (max-width: 1024px){
   .slideshow-container {
     top: -175px;

@@ -34,6 +34,54 @@ jQuery(document).ready(function($) {
       });
   });
 });
-//galeria modal en sigle bordado
+document.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener('scroll', function() {
+        var element = document.querySelector('.fade-in');
+     
+        var distancia = window.innerHeight - element.getBoundingClientRect().top;
+
+        // Verifica si el elemento está dentro de la ventana del navegador
+        if(distancia >= 100) {
+            element.classList.add('is-visible');
+        }
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+   
+        var element = document.querySelector('.fade-in');
+     
+        var distancia = window.innerHeight - element.getBoundingClientRect().top;
+
+        // Verifica si el elemento está dentro de la ventana del navegador
+        if(distancia >= 100) {
+            element.classList.add('is-visible');
+        }
+   
+});
+
+/*popup de inicio*/
+document.addEventListener('DOMContentLoaded', function() {
+  var popupContainer = document.getElementById('popup-container');
+
+  // Mostrar la ventana emergente después de un retraso (ejemplo: 5 segundos)
+  setTimeout(function() {
+      popupContainer.classList.add('show');
+  }, 5000); // 5000 milisegundos = 5 segundos
+
+  // Ocultar la ventana emergente al hacer clic en el botón de cierre
+  var popupCloseButton = document.getElementById('popup-close');
+  popupCloseButton.addEventListener('click', function() {
+      popupContainer.classList.remove('show');
+      console.log('boton de cerrado');
+  });
+
+  // Ocultar la ventana emergente al hacer clic fuera de la ventana emergente
+  popupContainer.addEventListener('click', function(event) {
+      if (event.target === popupContainer) {
+          popupContainer.classList.remove('show');
+          console.log('cerrado click en la caja');
+      }
+  });
+});
 
 

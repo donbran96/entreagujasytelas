@@ -8,8 +8,8 @@
         <?php foreach ($galeria as $index => $imagen) { ?>
             <div class="slide <?php echo $index === 0 ? 'active' : ''; ?>" style="background-image: url('<?php echo $imagen['url']; ?>');">
                 <div>
-                    <h1><?php bloginfo('name'); ?></h1>
-                    <h3><?php bloginfo('description'); ?></h3>
+                    <h2 class="escribiendo titulo-slider"><?php bloginfo('name'); ?></h2>
+                    <h3 class="escribiendo"><?php bloginfo('description'); ?></h3>
                 </div>
             </div>
         <?php } ?>
@@ -23,7 +23,7 @@
     <!--Caja de Retrato-->
     
     <?php $foto_retrato=get_field('foto_retrato'); ?>
-    <div class="contenedor_borde cajas_padding">
+    <div class="contenedor_borde cajas_padding  fade-in">
         <div class="contenedor">
             <div class="foto_retrato">
                 <img src="<?php echo $foto_retrato; ?>" alt="Foto Retrato">
@@ -68,7 +68,7 @@
         </ul>
         <?php $archive_url = get_post_type_archive_link( 'bordados' ); ?>
         <a href="<?php echo $archive_url; ?>">
-            <button class="ver_todos" >Ver Todos</button>
+            <button class="ver_todos boton-temblar" >Ver Todos</button>
         </a>
     </div>
 
@@ -103,7 +103,7 @@
                             <?php the_excerpt(); ?>
                         </div>
                         <a href="<?php the_permalink(); ?>">
-                            <button class="ver_todos">Conocer más</button>
+                            <button class="ver_todos boton-temblar">Conocer más</button>
                         </a>
                     </div>
                     <?php
@@ -124,7 +124,7 @@
         ?>
 
         <a href="<?php echo home_url('/blog/'); ?>">
-            <button class="ver_todos">Noticias</button>
+            <button class="ver_todos boton-temblar">Noticias</button>
         </a>
     </div>
 </div>
@@ -136,7 +136,7 @@
 
     <div class="cajas_padding contenedor_borde">
     <h2 class="subtitulos">Categorías</h2>
-    <ul class="lista-bordados">
+    <ul class="lista-bordados lista-categorias">
         <?php
         $categories = get_categories(); // Obtener todas las categorías
         foreach ($categories as $category) {
@@ -157,7 +157,7 @@
         ?>
     </ul>
     <a href="<?php echo $archive_url; ?>">
-        <button class="ver_todos">Ver Todos</button>
+        <button class="ver_todos boton-temblar">Ver Todas</button>
     </a>
 </div>
 
@@ -189,7 +189,7 @@
                     echo '<li>';
                         $foto_cliente=get_field('foto_del_cliente');?>
                         <div class="foto_retrato_cliente">
-                        <img src="<?php echo esc_url($foto_cliente); ?>" alt="">
+                        <img src="<?php echo esc_url($foto_cliente); ?>" alt="testimonio-cliente">
 
                         </div>
                         <?php echo '<p class="parrafo">'.get_the_title().'</p>';
@@ -202,7 +202,7 @@
         </ul>
         <?php $archive_url = get_post_type_archive_link( 'clientes' ); ?>
         <a href="<?php echo $archive_url; ?>">
-            <button class="ver_todos" >Ver Todos</button>
+            <button class="ver_todos boton-temblar" >Ver Todos</button>
         </a>
     </div>
     
@@ -239,10 +239,26 @@
                 </a>
             </div>
             <a href="<?php echo home_url('/contacto/'); ?>">
-                <button class="ver_todos">Contáctame</button>
+                <button class="ver_todos boton-temblar">Contáctame</button>
             </a>
         </div>
     </div>
 </main>
+
+<!--Caja de POPUP-->
+<div id="popup-container" class="popup">
+    <div class="popup-content">
+        <span class="popup-close" id="popup-close">&times;</span>
+        <img src="<?php echo get_template_directory_uri(); ?>/img/Claudia-jana.jpeg" alt="Imagen">
+        <p class="titulo-popup">Jana</p>
+        <p>Puedes echarle un vistazo para ver como quedó</p>
+        <a href="<?php echo home_url('/bordados/retrato-personalizado-de-jana/'); ?>">
+        <button class="ver_todos boton-animacion">Ver el Bordado</button>   
+        </a>
+        <!--<button id="popup-close-button">Cerrar</button>-->
+    </div>
+</div>
+
+
 
 <?php get_footer(); ?>

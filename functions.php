@@ -21,9 +21,13 @@
         wp_enqueue_style('single-bordados-style', get_template_directory_uri().'/styles/single-bordados.css', array('normalize'), '1.0.0');
         wp_enqueue_style('front-page-style', get_template_directory_uri().'/styles/front-page.css', array('normalize'), '1.0.0');
         wp_enqueue_style('noticias', get_template_directory_uri().'/styles/noticias.css', array('normalize'), '1.0.0');
+        wp_enqueue_style('efectos', get_template_directory_uri().'/styles/efectos.css', array('normalize'), '1.0.0');
         wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
         wp_enqueue_script('jquery');
-        wp_enqueue_script('tu-slider-script', get_template_directory_uri() . '/js/slider-scripts.js', array('jquery'), '1.0.0', true);
+        $version = time(); // Genera una cadena de tiempo única (puedes ajustar esto según tus necesidades)
+        wp_enqueue_script('tu-slider-script', get_template_directory_uri() . '/js/slider-scripts.js', array('jquery'), $version, true);
+
+        //wp_enqueue_script('tu-slider-script', get_template_directory_uri() . '/js/slider-scripts.js', array('jquery'), '1.0.0', true);
         
     }
 
@@ -168,12 +172,20 @@
 function custom_login_logo() {
     echo '<style type="text/css">
         #login h1 a, .login h1 a {
-            background-image: url(' . get_template_directory_uri() . '/img/logo.png); 
+            background-image: url(' . get_template_directory_uri() . '/img/Logo.png); 
             height: 100px; /* Personaliza la altura */
             width: 100px; /* Personaliza el ancho */
             background-size: contain;
         }
     </style>';
+    echo '<script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            var loginLogoLink = document.querySelector("#login h1 a");
+            if (loginLogoLink) {
+                loginLogoLink.href = "https://entreagujasytelas.com"; // Cambia el href aquí
+            }
+        });
+    </script>';
 }
 
 add_action('login_head', 'custom_login_logo');
@@ -185,6 +197,7 @@ function custom_admin_background() {
         body.login {
             background-image: url(' . get_template_directory_uri() . '/img/fondo-admin.jpg); /* Reemplaza esta URL con la URL de tu nueva imagen de fondo */
             background-size: cover;
+            background-position: bottom;
         }
     </style>';
     echo '<style type="text/css">

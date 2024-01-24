@@ -82,6 +82,12 @@
 .noticia-destacada .caja-izquierda h2{
     margin-bottom: 20px;
 }
+.noticia-destacada .caja-izquierda a button{
+    margin: 0 !important;
+}
+.noticia-destacada .caja-izquierda a{
+    margin-top: 30px;
+}
 .noticia-destacada .caja-izquierda .extracto{
     color: var(--blanco);
     padding: 0 20px;

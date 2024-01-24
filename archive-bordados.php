@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main class="contenedor-ancho contenedor_borde cajas_padding">
-    <h2 class="subtitulos"><?php wp_title(''); ?></h2>
+    <h2 class="subtitulos">Bordados</h2>
 
     
     <!-- Lista de categorias-->
@@ -17,12 +17,14 @@
                 foreach ($categories as $category) {
                     $category_name = $category->name; // Obtener el nombre de la categoría
                     $category_slug = $category->slug;
+                    if ($category_slug !== 'sin-categoria') {
             ?>
                     <li>
                 <div class="category-link" data-category="<?php echo $category_slug; ?>"><?php echo $category_name; ?></div>
             </li>
             <?php
                 }
+            }
             ?>
         </ul>
     </div>   
